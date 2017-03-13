@@ -1,0 +1,23 @@
+{% extends 'music/base.html' %}
+
+{% block title %} ISDB {%endblock%}
+
+
+{% block body %}
+    <head>
+
+    <h2>Here are all my albums :</h2>
+    <meta charset="UTF-8">
+    {% if object_list %}
+        <ul>
+            {% for album in object_list %}
+            <li><a href= "{% url 'music:detail' album.id %}">{{ album.album_title }}</a> </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3>You don't have any albums</h3>
+    {% endif %}
+    </head>
+
+
+{% endblock %}
